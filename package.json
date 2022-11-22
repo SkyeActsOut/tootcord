@@ -1,9 +1,9 @@
 {
-    "name": "mastcord",
+    "name": "@skymocha/tootcord",
     "version": "0.0.1",
     "description": "A NodeJS library allowing for posting Discord messages to Mastodon",
     "author": "SkyMocha",
-    "license": "CC-4.0",
+    "license": "CC-BY-4.0",
     "dependencies": {
         "@types/node": "^17.0.38",
         "discord.js": "^12.5.3",
@@ -12,5 +12,24 @@
         "megalodon": "^4.1.1",
         "ts-node": "^10.8.0",
         "typescript": "^4.7.2"
-    }
+    },
+    "main": "index.ts",
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SkyMocha/tootcord.git"
+    },
+    "keywords": [
+        "mastodon",
+        "discord",
+        "discord.js",
+        "discord-bot"
+    ],
+    "bugs": {
+        "url": "https://github.com/SkyMocha/tootcord/issues"
+    },
+    "homepage": "https://github.com/SkyMocha/tootcord#readme"
 }

@@ -1,6 +1,6 @@
-# tootcord
+# Tootcord
 
-A simple library for posting toots to one or multiple Mastodon server.
+A simple library for posting toots to one or multiple Mastodon server within a Discord.JS bot. 
 
 ## Documentation
 
@@ -18,3 +18,9 @@ client.on ('message', async (message: Message) => {
 }
 
 ```
+
+## Access Token
+
+You will need your access token which can be found at:
+
+> Preferences $\to$ Development $\to$ New application $\to$ Submit $\to$ Copy Access Token

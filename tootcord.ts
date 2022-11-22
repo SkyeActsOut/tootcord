@@ -3,11 +3,22 @@ import generator, { Entity, Response, MegalodonInterface } from 'megalodon'
 import fs from 'fs'
 const download = require('image-downloader');
 
+/**
+ * @name Tootcord
+ * @author SkyMocha
+ * @description For posting toots on Mastodon using Discord.JS
+ * 
+ * */
 export class Tootcord {
 
     BASE_URL: string;
     client: MegalodonInterface;
 
+    /**
+     * @constructor
+     * @param BASE_URL the URL for your mastodon server with HTTPS
+     * @param access_token the access token for your mastodon account
+     */
     constructor(BASE_URL: string, access_token: string) {
 
         this.BASE_URL = BASE_URL;
@@ -16,8 +27,11 @@ export class Tootcord {
 
     }
 
-
-    AAA(length: number): string {
+    /**
+     * @param length 
+     * @returns a filename for temporary files stored on your device
+     */
+    gen_filename(length: number): string {
         var result = '';
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
@@ -27,6 +41,11 @@ export class Tootcord {
         return result;
     }
 
+    /**
+     * @description Uploads all files in a MessageAttatchement Collection and returns the IDs
+     * @param files 
+     * @returns an array of IDs for the images on Mastodon
+     */
     async getFiles(files: Collection<Snowflake, MessageAttachment>): Promise<Array<string>> {
 
         let _files: Array<string> = []
@@ -38,7 +57,7 @@ export class Tootcord {
 
             if (f != undefined) {
 
-                let n: string = `${this.AAA(8)}.png`
+                let n: string = `${this.gen_filename(8)}.png`
 
                 console.log(f.attachment.toString())
                 await download.image({ url: f.attachment.toString(), dest: n })
@@ -68,7 +87,12 @@ export class Tootcord {
         return _files
     }
 
-
+    /**
+     * @description posts a toot
+     * @param text the text of the toot
+     * @param files the files as a Collection of MessageAttachments. Can be gotten from message.attachments
+     * @returns a true promise when done
+     */
     async post_toot(text: string, files: Collection<Snowflake, MessageAttachment>): Promise<boolean> {
 
         let _files = await this.getFiles(files)
