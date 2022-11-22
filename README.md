@@ -4,6 +4,10 @@ A simple library for posting toots to one or multiple Mastodon server within a D
 
 ## Documentation
 
+The primary command is `post_toot` under the `Tootcord` class.
+
+An example can be found in `example.ts`, otherwise, the following is a shorthand example:
+
 ```ts
 import { Tootcord } from 'tootcord';
 
@@ -23,4 +27,16 @@ client.on ('message', async (message: Message) => {
 
 You will need your access token which can be found at:
 
-> Preferences $\to$ Development $\to$ New application $\to$ Submit $\to$ Copy Access Token
+> Preferences --> Development --> New application --> Submit --> Copy Access Token
+
+## Known Issues
+
+* You MAY need to change the updateMedia function of Mastodon to the v2 API. Depends on the user. Instructions to come eventually.
+
+## Support Me
+
+Support me by following me on [YouTube](https://www.youtube.com/@skymochi64) or [TikTok](https://www.tiktok.com/@skymochi64) or even supporting me on [Patreon](https://www.patreon.com/skymocha)!
+
+## License  
+
+CC-BY-4.0
