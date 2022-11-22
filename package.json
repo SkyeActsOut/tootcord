@@ -1,7 +1,7 @@
 {
     "name": "@skymocha/tootcord",
-    "version": "0.0.1",
-    "description": "A NodeJS library allowing for posting Discord messages to Mastodon",
+    "version": "0.0.2",
+    "description": "Post to Mastodon using Discord bots",
     "author": "SkyMocha",
     "license": "CC-BY-4.0",
     "dependencies": {
