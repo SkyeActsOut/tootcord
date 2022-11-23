@@ -1,6 +1,6 @@
 {
     "name": "tootcord",
-    "version": "0.0.2",
+    "version": "0.1.1",
     "description": "Post to Mastodon using Discord bots",
     "author": "SkyMocha",
     "license": "CC-BY-4.0",
@@ -13,11 +13,11 @@
         "ts-node": "^10.8.0",
         "typescript": "^4.7.2"
     },
-    "main": "index.ts",
-    "devDependencies": {},
-    "typings": "tootcord.d.ts",
+    "main": "lib/tootcord.js",
+    "typings": "lib/tootcord.d.ts",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc"
     },
     "repository": {
         "type": "git",
@@ -26,6 +26,7 @@
     "keywords": [
         "mastodon",
         "mastodon-client",
+        "mastodon-api",
         "discord",
         "discord.js",
         "discord-bot"

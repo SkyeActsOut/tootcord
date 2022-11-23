@@ -1,6 +1,6 @@
-import { Client, MessageAttachment, Snowflake, Collection } from 'discord.js';
-import generator, { Entity, Response, MegalodonInterface } from 'megalodon'
-import fs from 'fs'
+import { MessageAttachment, Snowflake, Collection } from 'discord.js';
+import generator, { MegalodonInterface } from 'megalodon';
+import fs from 'fs';
 const download = require('image-downloader');
 
 /**

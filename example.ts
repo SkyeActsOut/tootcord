@@ -17,9 +17,11 @@ const config = require('./config.json');
 
 import { Tootcord } from 'tootcord'
 
+var masto: Tootcord;
+
 client.on('ready', async () => {
 
-    const masto = new Tootcord(`https://m.skymocha.net/.`, config['token'])
+    masto = new Tootcord(`https://m.skymocha.net/.`, config['token'])
 
     client.user.setActivity("SkyMocha", { type: "WATCHING" })
 
