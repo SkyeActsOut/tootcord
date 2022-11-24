@@ -1,6 +1,6 @@
 import { MessageAttachment, Snowflake, Collection } from 'discord.js';
 import generator, { MegalodonInterface } from 'megalodon';
-import fs from 'fs';
+import * as fs from 'fs';
 const download = require('image-downloader');
 
 /**
@@ -96,9 +96,10 @@ export class Tootcord {
     async post_toot(text: string, files: Collection<Snowflake, MessageAttachment>): Promise<boolean> {
 
         let _files = await this.getFiles(files)
+        let success: boolean = false
 
         if (text.length > 500)
-            return false
+            return success
 
         if (_files.length > 0)
 
@@ -106,13 +107,18 @@ export class Tootcord {
 
                 text, { media_ids: _files }
 
-            ).then(e => console.log(`STATUS POSTED FOR ${this.BASE_URL} ID ${e.data.url}`))
+            ).then(e => {
+                console.log(`STATUS POSTED FOR ${this.BASE_URL} ID ${e.data.url}`)
+                success = true
+            }).catch(e => {
+                console.error(e)
+            })
 
         else
 
-            this.client.postStatus(text)
+            this.client.postStatus(text).then(() => success = true).catch(e => console.error(e))
 
-        return true
+        return success
 
     }
 

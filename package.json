@@ -1,13 +1,11 @@
 {
     "name": "tootcord",
-    "version": "0.1.2",
+    "version": "0.1.4",
     "description": "Post to Mastodon using Discord bots",
     "author": "SkyMocha",
     "license": "CC-BY-4.0",
     "dependencies": {
-        "@types/node": "^17.0.38",
         "discord.js": "^12.5.3",
-        "fs": "^0.0.1-security",
         "image-downloader": "^4.3.0",
         "megalodon": "^4.1.1",
         "ts-node": "^10.8.0",
