@@ -15,7 +15,7 @@ const client = new Discord.Client({
 
 const config = require('./config.json');
 
-import { Tootcord } from 'tootcord'
+import { Tootcord } from 'tootcord';
 
 var masto: Tootcord;
 
@@ -36,12 +36,12 @@ client.on('message', async (message: Message) => {
 
     if (msg.startsWith('!mast ')) {
 
-        let toot: boolean = masto.post_toot(msg.slice(5), message.attachments)
+        let toot: boolean = await masto.post_toot(msg.slice(5), message.attachments)
         if (toot) {
-            message.reply(' toot sent successfully!')
+            message.reply(`toot sent successfully for ${masto.}!`)
         }
         else
-            message.reply(' toot could not be sent (longer than 500 characters?)')
+            message.reply('toot could not be sent (longer than 500 characters?)')
 
     }
 

@@ -27,6 +27,18 @@ export class Tootcord {
 
     }
 
+    getURL(): string {
+
+        return this.BASE_URL;
+
+    }
+
+    toString(): string {
+
+        return `MASTODON INSTANCE ${this.getURL()}`
+
+    }
+
     /**
      * @param length 
      * @returns a filename for temporary files stored on your device

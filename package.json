@@ -1,6 +1,6 @@
 {
     "name": "tootcord",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Post to Mastodon using Discord bots",
     "author": "SkyMocha",
     "license": "CC-BY-4.0",

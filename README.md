@@ -21,7 +21,7 @@ let mast_instance = new Tootcord ('m.skymocha.net', 'access_token');
 client.on ('message', async (message: Message) => {
 
     if (message.content.startsWith('!mastworld')) 
-        mast_instance.post_toot ('Hello World!', message.attachments);
+        mast_instance.post_toot ('Hello World!', message.attachments).
 
 }
 
@@ -32,14 +32,27 @@ Since `post_toot` returns a `boolean` as `true` when sent successfully, otherwis
 Currently `post_toot` returns `false` if the text is over 500 characters, you can implement length and error checking by doing the following:
 
 ```ts
-let toot: boolean = masto.post_toot('Hello World!', message.attachments)
+// OPTION ONE
+let toot: boolean = await masto.post_toot('Hello World!', message.attachments)
 
 if (toot) {
-    message.reply(' toot sent successfully!')
+    message.reply('toot sent successfully!')
 }
 else {
-    message.reply(' toot could not be sent (longer than 500 characters? unknown erorr?)')
+    message.reply('toot could not be sent (longer than 500 characters? unknown erorr?)')
 }
+
+// OPTION TWO
+masto.post_toot('Hello World!', message.attachments).then ( success => {
+        if (success) {
+            message.reply('toot sent successfully!')
+        }
+        else {
+            message.reply('toot could not be sent (longer than 500 characters? unknown erorr?)')
+        }
+    }
+)
+
 ```
 
 ## Access Token
