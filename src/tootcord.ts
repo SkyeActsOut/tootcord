@@ -97,6 +97,9 @@ export class Tootcord {
 
         let _files = await this.getFiles(files)
 
+        if (text.length > 500)
+            return false
+
         if (_files.length > 0)
 
             this.client.postStatus(
