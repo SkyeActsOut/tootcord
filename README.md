@@ -23,6 +23,19 @@ client.on ('message', async (message: Message) => {
 
 ```
 
+Since `post_toot` returns a `boolean` as true when sent, and currently false if over 500 characters, you can implement length checking by doing the following:
+
+```ts
+let toot: boolean = masto.post_toot('Hello World!', message.attachments)
+
+if (toot) {
+    message.reply(' toot sent successfully!')
+}
+else {
+    message.reply(' toot could not be sent (longer than 500 characters?)')
+}
+```
+
 ## Access Token
 
 You will need your access token which can be found at:

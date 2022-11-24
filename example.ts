@@ -36,7 +36,12 @@ client.on('message', async (message: Message) => {
 
     if (msg.startsWith('!mast ')) {
 
-        masto.post_toot(msg.slice(5), message.attachments)
+        let toot: boolean = masto.post_toot(msg.slice(5), message.attachments)
+        if (toot) {
+            message.reply(' toot sent successfully!')
+        }
+        else
+            message.reply(' toot could not be sent (longer than 500 characters?)')
 
     }
 
